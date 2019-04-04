@@ -1,0 +1,30 @@
+__author__ = "Sheetal Sohal"
+
+#Program to validate a palindrome string
+
+palindromeString = input("Enter palindrome string; enter 'n' to exit ")
+palindromeString = palindromeString.lower()
+if palindromeString == 'n':
+    exit()
+else:
+    newPalindrome = palindromeString.replace(" ","") # Removes whitespaces
+    print("After removing space "+newPalindrome)
+    punctuations = '''!()-[]{};:'"‘’\,<>./?@#$%^&*_~'''
+    for itr in palindromeString:
+        if itr in punctuations:
+            newPalindrome = newPalindrome.replace(itr,"") # Replaces punctuations from string
+    print("New Palindrome: " +newPalindrome)
+
+    newpalindrome_reverse = newPalindrome[::-1].replace(" ","") #Finds the reverse of a string
+    print("Before function call: "+ newpalindrome_reverse)
+
+    def isPalindrome(palindromeString):
+        if newPalindrome == newpalindrome_reverse: # Compares string with it's reverse
+            print("It is a palindrome")
+        else:
+            print("Not a palindrome")
+
+if __name__ == '__main__':
+    isPalindrome(palindromeString)
+
+
